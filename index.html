@@ -1,63 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <style>
-        .block{
-            display: flex;
-        }
+<style>
+    body{
+        background-color: lightblue;
+    }
 
-        body{
-            background-color: lightblue
-        }
-    </style>
+    h2{
+        text-align: center;
+    }
+
+    .hide{
+        display: none;
+    }
+
+    .container{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    p{
+        color: red;
+        font-size: 50px;
+    }
+
+    .container button{
+        position: fixed;
+        bottom: 20px;
+        right: -60px;
+        background-color: gold;
+    }
+</style>
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="font/css/all.css">
     <title>Document</title>
 </head>
 <body>
-    <h2 style="text-align:center;">Hescheduli</h2>
+    <h2>Hescheduli</h2>
 
-    <div class="block">
-        <h3>Math</h3><input type="checkbox">
+    <button>Check Supplies</button>
+    
+    <div class="supply" id="supply">
+        
     </div>
 
-    <div class="block">
-        <h3>Javascript Programming Exercise</h3><input type="checkbox">
+    <div class="container">
+
+        <div id="meditate">
+            <p>Meditate</p>
+            <button onclick="showWorkout()">Next</button>
+        </div>
+
+        <div id="workout" class="hide">
+            <p>Workout</p>
+            <button onclick="showJournal()">Next</button>
+        </div>
+
+        <div id="journal" class="hide">
+            <p>Journal</p>
+            <button onclick="showFish()">Next</button>
+        </div>
+
+        <div id="fish" class="hide">
+            <p>FISH</p>
+            <button onclick="showMath()">Next</button>
+        </div>
+
+        <div id="math" class="hide">
+            <p>Math</p>
+            <button onclick="showTalisman()">Next</button>
+        </div>
+
+       <div id="talisman" class="hide">
+            <p>Talisman</p>
+            <button onclick="showJspe()">Next</button>
+        </div>
+
+        <div id="jspe" class="hide">
+            <p>Javascript Programming Exercise</p>
+            <button onclick="showUdemy()">Next</button>
+        </div>
+
+        <div id="udemy" class="hide">
+            <p>UDEMY Javascript</p>
+            <button onclick="showDebug()">Next</button>
+        </div>
+
+        <div id="debug" class="hide">
+            <p>Website Debugging</p>
+            <button onclick="showWebsite()">Next</button>
+        </div>
+
+        <div id="website" class="hide">
+            <p>Website Update</p>
+            <button onclick="showYoutube()">Next</button>
+        </div>
+
+        <div id="youtube" class="hide">
+            <p>Youtube Course</p>
+            <ul>
+                <li>PHP</li>
+                <li>MIT intro to algo</li>
+            </ul><br>
+            <button onclick="showBoublog()">Next</button>
+        </div>
+
+        <div id="boublog" class="hide">
+            <p>BouBlog</p>
+            <button onclick="showMeditate()">Next</button>
+        </div>
+
     </div>
 
-    <div class="block">
-        <h3>Udemy Javascript</h3><input type="checkbox">
-    </div>
+    <script>
+        var meditate = document.getElementById('meditate');
+        var fish = document.getElementById('fish');
+        var jspe = document.getElementById('jspe');
+        var udemy = document.getElementById('udemy');
+        var debug = document.getElementById('debug');
+        var website = document.getElementById('website');
+        var youtube = document.getElementById('youtube');
+        var talisman = document.getElementById('talisman');
+        var boublog = document.getElementById('boublog');
+        var workout = document.getElementById('workout');
+        var math = document.getElementById("math");
+        var talisman = document.getElementById('talisman');
+        
+        
+        function showTalisman() {
+            math.style.display = "none";
+            talisman.style.display = "block";
+        }
 
-    <div class="block">
-        <h3>Website Debugging</h3><input type="checkbox">
-    </div>
+        function showMath() {
+            fish.style.display = "none";
+            math.style.display = "block";
+        }
 
-    <div class="block">
-        <h3>Website Update</h3><input type="checkbox">
-    </div>
+        function showJournal() {
+            workout.style.display ="none";
+            journal.style.display = "block";
+        }
 
-    <div class="block">
-        <h3>Database Youtube Course</h3><input type="checkbox">
-    </div>
+        function showWorkout() {
+            meditate.style.display = "none";
+            workout.style.display = "block";
+        }
 
-    <div class="block">
-        <h3>Talisman</h3><input type="checkbox">
-    </div>
+        function showFish() {
+            journal.style.display = "none";
+            fish.style.display = 'block';
+        }
 
-    <div class="block">
-        <h3>BouBlog</h3><input type="checkbox">
-    </div>
+        function showJspe() {
+            talisman.style.display = "none";
+            jspe.style.display = "block";
+        }
 
-    <div class="block">
-        <div id="textHere"></div><input type="checkbox">
-    </div>
+        function showUdemy() {
+            jspe.style.display = "none";
+            udemy.style.display = "block";
+        }
 
-    <div>
-        <input id="extra">
-    </div>
+        function showDebug() {
+            udemy.style.display = "none";
+            debug.style.display = "block";
+        }
 
-<script src="js.js"></script>
+        function showWebsite() {
+            debug.style.display = "none";
+            website.style.display = "block";
+        }
+
+        function showYoutube() {
+            website.style.display = "none";
+            youtube.style.display = "block";
+        }
+
+      function showBoublog() {
+            youtube.style.display = "none";
+            boublog.style.display = "block";
+        }
+
+        function showMeditate() {
+            boublog.style.display = "none";
+            meditate.style.display = "block";
+        }
+  </script>
 </body>
 </html>
