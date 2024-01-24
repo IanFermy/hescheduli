@@ -31,6 +31,66 @@
         right: -60px;
         background-color: gold;
     }
+
+   
+
+    #showSupply  ul {
+        list-style-type: none;
+    }
+
+    #bathroom {
+        position: absolute;
+        left: 120px;
+        top: 10%;
+        
+    }
+
+    #cooking {
+        position: absolute;
+        left: 120px;
+        top: 10%;    
+    }
+
+    #cleaning {
+        position: absolute;
+        left: 120px;
+        top: 10%
+    }
+
+    #firstaid, #stock {
+         position: absolute;
+         left: 120px;
+         top: 10%;
+    }
+
+    .bathtowels {
+        display: flex;
+        flex-direction:row;
+    }
+
+    .flex {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .activeStock {
+        width: 10px;
+        height: 10px;
+        border: 2px solid black;
+        background-color: red;
+        border-radius: 50%;
+        margin: 4px;
+    }
+
+    .activeStock.used::before {
+        content: "x";
+        position: relative;
+        bottom: 13px;
+        right: 2px;
+        font-size: 29px;
+        color: yellow;
+    }
+    
 </style>
 <head>
     <meta charset="UTF-8">
@@ -41,13 +101,915 @@
 <body>
     <h2>Hescheduli</h2>
 
-    <button>Check Supplies</button>
+    <button onclick="showSupply()">Check Supplies</button>
     
-    <div class="supply" id="supply">
-        
+    <div class="supply" id="supply" style="display: none;">
+        <ul><button onclick="seeBathroom()">see bathroom</button></ul>
+        <ul><button onclick="seeCooking()">see cooking</button></ul>
+        <ul><button onclick="seeCleaning()">see cleaning</button></ul>
+        <ul><button onclick="seeFirstaid()">see firstaid</button></ul>
+        <ul><button onclick="closeSupply()" style="background-color: red;">close</button></ul>
+        <ul><button onclick="seeStock()">stock</button></ul>
     </div>
 
-    <div class="container">
+    <div id="showSupply">
+        <div id="bathroom" style="display: none">
+            <ul>
+                
+                <h4>Active (one unit in use)</h4>
+                <li>Bath Towels
+                    <span>
+                        <ul class="bathtowels">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Baby Oil
+                    <span>
+                        <ul class="babyoil flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Lotion
+                    <span>
+                        <ul class="lotion flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Soap
+                    <span>
+                        <ul class="soap flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Shampoo
+                    <span>
+                        <ul class="shampoo flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Conditioner
+                    <span>
+                        <ul class="conditioner flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Baby Powder
+                    <span>
+                        <ul class="babypowder flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Q-tips
+                    <span>
+                        <ul class="qtips flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Tooth Brush
+                    <span>
+                        <ul class="toothbrush flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Tooth Paste
+                    <span>
+                        <ul class="toothpaste flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Blistex Medicated Ointment
+                    <span>
+                        <ul class="blistex flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Deodorant
+                    <span>
+                        <ul class="deodorant flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Mouth Wash
+                    <span>
+                        <ul class="mouthwash flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Cologne
+                    <span>
+                        <ul class="cologne flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Alcohol
+                    <span>
+                        <ul class="alcohol flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Electric Razor
+                    <span>
+                        <ul class="electricrazor flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Razors
+                    <span>
+                        <ul class="razors flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>After Shave
+                    <span>
+                        <ul class="aftershave flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Nail Clippers
+                    <span>
+                        <ul class="nailclippers flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Butt Wipes
+                    <span>
+                        <ul class="buttwipes flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Shaving Cream
+                    <span>
+                        <ul class="shavingcream flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Hair Pic
+                    <span>
+                        <ul class="hairpic flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div id="firstaid" style="display: none">
+            <ul>
+                <h4>Active (one unit in use)</h4>
+                <li>Benadryl
+                    <span>
+                        <ul class="benadryl flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>First Aid Ointment
+                    <span>
+                        <ul class="firstaidointment flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>BandAids
+                    <span>
+                        <ul class="bandaid flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Bandages
+                    <span>
+                        <ul class="bandages flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Men's One a Day Pills
+                    <span>
+                        <ul class="oneaday flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Asprine
+                    <span>
+                        <ul class="asprine flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Pepto Bismal
+                    <span>
+                        <ul class="pepto flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Burn Ointment
+                    <span>
+                        <ul class="burnointment flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div id="cooking" style="display: none">
+            <ul>
+                <h4>Active (one unit in use)</h4>
+                <li>Beans
+                    <span>
+                        <ul class="beans flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Flour
+                    <span>
+                        <ul class="flour flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Oats
+                    <span>
+                        <ul class="oats flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Sugar
+                    <span>
+                        <ul class="sugar flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Oil
+                    <span>
+                        <ul class="oil flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Salt
+                    <span>
+                        <ul class="salt flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Paprika
+                    <span>
+                        <ul class="paprika flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Garlic Powder
+                    <span>
+                        <ul class="garlicpowder flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Pepper
+                    <span>
+                        <ul class="pepper flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Cayenne
+                    <span>
+                        <ul class="cayenne flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Red Pepper
+                    <span>
+                        <ul class="redpepper flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Plastic Utensils
+                    <span>
+                        <ul class="utensils flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Rice
+                    <span>
+                        <ul class="rice flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Ziplock Bags
+                    <span>
+                        <ul class="ziplock flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Foil Paper
+                    <span>
+                        <ul class="foil flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Paper Towels
+                    <span>
+                        <ul class="papertowels flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Crackers
+                    <span>
+                        <ul class="crackers flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Peanut Butter
+                    <span>
+                        <ul class="peanutbutter flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Jelly
+                    <span>
+                        <ul class="jelly flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Oil
+                    <span>
+                        <ul class="oil flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li></li>
+            </ul>
+        </div>
+        <div id="cleaning" style="display:none;">
+            <ul>
+                <h4>Active (one unit in use)</h4>
+                <li>Dish Soap
+                    <span>
+                        <ul class="dishsoap flex">
+                            <li class="activeStock used"></li>
+                            <li class="activeStock used"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+                <li>Sponges
+                    <span>
+                        <ul class="sponges flex">
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                            <li class="activeStock"></li>
+                        </ul>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="stock" style="display: none;">
+        <ul>
+            
+            <h4>Stock (one per unit)</h4>
+            <h5>Bathroom</h5>
+            <li>Bath Towels
+                <span>
+                    <ul class="bathtowels">
+                        <li class="activeStock"></li>
+                    </ul>
+                </span>
+            </li>
+            <li>Baby Oil
+                <span>
+                    <ul class="babyoil flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Lotion
+                <span>
+                    <ul class="lotion flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Soap
+                <span>
+                    <ul class="soap flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Shampoo
+                <span>
+                    <ul class="shampoo flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Conditioner
+                <span>
+                    <ul class="conditioner flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Baby Powder
+                <span>
+                    <ul class="babypowder flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Q-tips
+                <span>
+                    <ul class="qtips flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Tooth Brush
+                <span>
+                    <ul class="toothbrush flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Tooth Paste
+                <span>
+                    <ul class="toothpaste flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Blistex Medicated Ointment
+                <span>
+                    <ul class="blistex flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Deodorant
+                <span>
+                    <ul class="deodorant flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Mouth Wash
+                <span>
+                    <ul class="mouthwash flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Cologne
+                <span>
+                    <ul class="cologne flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Alcohol
+                <span>
+                    <ul class="alcohol flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Electric Razor
+                <span>
+                    <ul class="electricrazor flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Razors
+                <span>
+                    <ul class="razors flex">
+                    </ul>
+                </span>
+            </li>
+            <li>After Shave
+                <span>
+                    <ul class="aftershave flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Nail Clippers
+                <span>
+                    <ul class="nailclippers flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Butt Wipes
+                <span>
+                    <ul class="buttwipes flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Shaving Cream
+                <span>
+                    <ul class="shavingcream flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Hair Pic
+                <span>
+                    <ul class="hairpic flex">
+                    </ul>
+                </span>
+            </li>
+        </ul>
+    
+        <ul>
+            <h5>First aid</h5>
+            <li>Benadryl
+                <span>
+                    <ul class="benadryl flex">
+                    </ul>
+                </span>
+            </li>
+            <li>First Aid Ointment
+                <span>
+                    <ul class="firstaidointment flex">
+                    </ul>
+                </span>
+            </li>
+            <li>BandAids
+                <span>
+                    <ul class="bandaid flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Bandages
+                <span>
+                    <ul class="bandages flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Men's One a Day Pills
+                <span>
+                    <ul class="oneaday flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Asprine
+                <span>
+                    <ul class="asprine flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Pepto Bismal
+                <span>
+                    <ul class="pepto flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Burn Ointment
+                <span>
+                    <ul class="burnointment flex">
+                    </ul>
+                </span>
+            </li>
+        </ul>
+    
+        <ul>
+            <h5>Cooking</h5>
+            <li>Beans
+                <span>
+                    <ul class="beans flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Flour
+                <span>
+                    <ul class="flour flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Oats
+                <span>
+                    <ul class="oats flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Sugar
+                <span>
+                    <ul class="sugar flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Oil
+                <span>
+                    <ul class="oil flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Salt
+                <span>
+                    <ul class="salt flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Paprika
+                <span>
+                    <ul class="paprika flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Garlic Powder
+                <span>
+                    <ul class="garlicpowder flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Pepper
+                <span>
+                    <ul class="pepper flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Cayenne
+                <span>
+                    <ul class="cayenne flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Red Pepper
+                <span>
+                    <ul class="redpepper flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Plastic Utensils
+                <span>
+                    <ul class="utensils flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Rice
+                <span>
+                    <ul class="rice flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Detergent
+                <span>
+                    <ul class="detergent flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Foil Paper
+                <span>
+                    <ul class="foil flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Paper Towels
+                <span>
+                    <ul class="papertowels flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Crackers
+                <span>
+                    <ul class="crackers flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Peanut Butter
+                <span>
+                    <ul class="peanutbutter flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Jelly
+                <span>
+                    <ul class="jelly flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Oil
+                <span>
+                    <ul class="oil flex">
+                    </ul>
+                </span>
+            </li>
+        </ul>
+    
+        <ul>
+            <h5>Cleaning</h5>
+            <li>Dish Soap
+                <span>
+                    <ul class="dishsoap flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Sponges
+                <span>
+                    <ul class="sponges flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Floor Cleaner
+                <span>
+                    <ul class="cleaner flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Kitchen Towels
+                <span>
+                    <ul class="towels flex">
+                    </ul>
+                </span>
+            </li>
+            <li>Detergent
+                <span>
+                    <ul class="detergent flex">
+                    </ul>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+    <div class="container" id="container">
 
         <div id="meditate">
             <p>Meditate</p>
@@ -90,12 +1052,23 @@
         </div>
 
         <div id="debug" class="hide">
-            <p>Website Debugging</p>
+            <p>Website Build</p>
             <button onclick="showWebsite()">Next</button>
         </div>
 
         <div id="website" class="hide">
             <p>Website Update</p>
+            <ul>
+                <li>update material, shop</li>
+            </ul>
+            <button onclick="showGan()">Next</button>
+        </div>
+
+        <div id="gan" class="hide">
+            <p>Website GAN Build</p>
+            <ul>
+                <li>update hescheduli</li>
+            </ul>
             <button onclick="showYoutube()">Next</button>
         </div>
 
@@ -128,8 +1101,40 @@
         var workout = document.getElementById('workout');
         var math = document.getElementById("math");
         var talisman = document.getElementById('talisman');
+        var bathroom =  document.getElementById('bathroom');
+        var cooking = document.getElementById('cooking');
+        var cleaning = document.getElementById('cleaning');
+        var firstaid = document.getElementById('firstaid');
+        var seeSupply = document.getElementById('showSupply');
+        var supply = document.getElementById('supply');
+        var ganbuild = document.getElementById('gan');
+        var container = document.getElementById('container');
+        var stock = document.getElementById('stock');
+
+        function seeStock() {
+            stock.style.display = "block";
+            cooking.style.display="none";
+            cleaning.style.display="none";
+            firstaid.style.display="none";
+            bathroom.style.display= "none";
+        }
+
+        function closeSupply() {
+            supply.style.display = "none";
+            container.style.display = "block";
+            stock.style.display = "none";
+        }
+
+        function showSupply() {
+            supply.style.display = "block";
+            container.style.display = "none";
+        }
         
-        
+        function showGan() {
+            website.style.display = "none";
+            ganbuild.style.display = "block";
+        }
+
         function showTalisman() {
             math.style.display = "none";
             talisman.style.display = "block";
@@ -176,7 +1181,7 @@
         }
 
         function showYoutube() {
-            website.style.display = "none";
+            ganbuild.style.display = "none";
             youtube.style.display = "block";
         }
 
@@ -188,6 +1193,38 @@
         function showMeditate() {
             boublog.style.display = "none";
             meditate.style.display = "block";
+        }
+
+        function seeBathroom() {
+            cooking.style.display="none";
+            cleaning.style.display="none";
+            firstaid.style.display="none";
+            bathroom.style.display= "block";
+            stock.style.display = "none";
+        }
+
+        function seeCooking() {
+            cooking.style.display="block";
+            cleaning.style.display="none";
+            firstaid.style.display="none";
+            bathroom.style.display= "none";
+            stock.style.display = "none";
+        }
+
+        function seeCleaning() {
+            cooking.style.display="none";
+            cleaning.style.display="block";
+            firstaid.style.display="none";
+            bathroom.style.display= "none";
+            stock.style.display = "none";
+        }
+
+        function seeFirstaid() {
+            cooking.style.display="none";
+            cleaning.style.display="none";
+            firstaid.style.display="block";
+            bathroom.style.display= "none";
+            stock.style.display = "none";
         }
   </script>
 </body>
